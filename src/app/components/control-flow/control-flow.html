@@ -1,0 +1,121 @@
+<div class="row">
+	<div class="col-3">
+		<input type="checkbox" [(ngModel)]="isOfferCodeAvl">
+		Do you have offer code
+		<br>
+		--{{isOfferCodeAvl}}
+	</div>
+
+	<div class="col-3">
+		@if (isOfferCodeAvl) {
+		<input type="text" class="form-control" placeholder="Enter Offer Code">
+		}
+	</div>
+</div>
+<br>
+<hr><br>
+
+<div class="row">
+	<div class="col-3">
+
+		@if (isSuccessDivVisiable()) {
+		<div class="bg-success p-3">
+			Success Div
+		</div>
+		} @else if (!isSuccessDivVisiable()) {
+		<div class="bg-danger p-3">
+			Danger Div
+		</div>
+		}
+
+	</div>
+
+	<div class="col-3">
+		<button class="btn btn-success" (click)="toggleDivVisibility()">Toogle</button>
+	</div>
+</div>
+<br>
+<hr><br>
+
+<div class="row">
+	<div class="col-3">
+		<input type="number" placeholder="%" class="form-control" (input)="updateExamNote()"
+			[(ngModel)]="studentResultExam">
+		--{{studentResultExam}}
+	</div>
+
+	<div class="col-3">
+
+		@if (isTrueStudentResultExam) {
+		<strong [class]="studentExamCharNoteClassName">
+			Student Has {{studentExamCharNote}} Grade
+		</strong>
+		}
+		@else {
+		<strong class="text-danger">
+			{{ studentInputMessage }}
+		</strong>
+		}
+
+	</div>
+</div>
+
+<br>
+<hr><br>
+
+<div class="row">
+	<div class="col-3">
+		<ul>
+			@for (item of offerList; track $index) {
+			<li> {{item}} </li>
+			}
+		</ul>
+	</div>
+	<div class="col-9">
+		<ul>
+			@for (item of productCategoryList; track $index) {
+			<button class="btn btn-primary mx-2">
+				{{item}}
+			</button>
+			}
+		</ul>
+	</div>
+</div>
+
+<br>
+<hr><br>
+
+<div class="row">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>#</th>
+				@for (header of employeeListHeaders; track $index) {
+				<th> {{ header }} </th>
+				}
+			</tr>
+		</thead>
+		<tbody>
+			@for (employee of employeeList; track $index) {
+			<tr>
+				<td>
+					{{ $index + 1 }}
+				</td>
+
+				@for (proprty of employeeListHeaders; track $index) {
+					@if (proprty == 'isActive') {
+						<td [ngClass]="employee[proprty] == true 
+							? 'text-success' : 'text-danger'"> 
+								{{employee[proprty]}} 
+						</td>
+					} @else {
+						<td> 
+							{{employee[proprty]}} 
+						</td>
+					}
+				}
+			</tr>
+			}
+		</tbody>
+	</table>
+</div>

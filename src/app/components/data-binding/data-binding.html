@@ -1,0 +1,53 @@
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<span>{{ courseName }}</span>
+			</td>
+			<td>
+				<strong>{{ courseName }}</strong>
+			</td>
+			<td>
+				<strong>{{ cityName }}</strong>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="text" [value]="courseName">
+			</td>
+			<td>
+				<p [class]="className" class="custom-border">
+					Naber Ahbab
+				</p>
+			</td>
+			<td>
+				<input [type]="inputType">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<!-- <button onclick="showWelcomeMessage()">Shoe Message - JS</button> -->
+				<button (click)="showWelcomeMessage()">Shoe Message - TS</button>
+			</td>
+			<td>
+				<select (change)="onStateChange()">
+					<option>Viyana</option>
+					<option>Varşova</option>
+					<option>Tokyo</option>
+					<option>Yeni Delhi</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="text" [(ngModel)]="courseName">
+			</td>
+			<td>
+				<button (click)="changeCourseName('Java')">Change Course Name</button>
+			</td>
+			<td>
+				<button (click)="changeCourseName(' .NET')">Change Course Name</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,106 @@
+<div class="row">
+	<div [ngClass]="isSidePanel() == true ? 'col-8' : 'col-12'" >
+		<div class="card">
+			<div class="card-header bg-primary">
+				<div class="row">
+					<div class="col-8">
+						List
+					</div>
+					<div class="col-4 text-end">
+						<button (click)="openSidePanel()" class="btn btn-success">
+							Aç
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col-3">
+						<div class="p-4" [ngStyle]="{'background-color': div2BackColor}">
+							Div 2
+						</div>
+					</div>
+					<div class="col-3">
+						<input type="text" class="form-control" [(ngModel)]="div2BackColor">
+						<p class="lead">Style olarak renk kodu ve adı
+							girerek div'in background-color'ıını değiştirilebilir
+							Örnek :
+							<br> - red
+							<br> - #999999
+							<br> - rgb(100, 100, 100)
+						</p>
+					</div>
+					<div class="col-3" [ngStyle]="myCss">
+						Div 3
+					</div>
+				</div>
+
+				<br>
+				<hr><br>
+
+				<div class="row">
+					<div class="col-3">
+						<div [class]=" 'p-4 ' + myClassName">
+							Div 3
+						</div>
+					</div>
+					<div class="col-3">
+						<input type="text" class="form-control" [(ngModel)]="myClassName">
+						<p class="lead">Bootstap üzerindeki background
+							class'ları girilerek div'in background'u değiştirilebilir
+							Örnek :
+							<br> - bg-success
+							<br> - bg-danger
+							<br>
+							(NgClass veya NgStyle kullanılmadan [class] kullanılarak
+							yapıldı)
+						</p>
+					</div>
+				</div>
+
+				<br>
+				<hr><br>
+
+			</div>
+		</div>
+	</div>
+
+	@if (isSidePanel()) {
+	<div class="col-4">
+		<div class="card">
+			<div class="card-header bg-primary">
+				<div class="row">
+					<div class="col-8">
+						Form
+					</div>
+					<div class="col-4 text-end">
+						<button (click)="closeSidePanel()" class="btn btn-success">
+							Kapat
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col-3">
+						<p [ngClass]="productPrice > 500 ? 'text-danger' : 'text-primary'">
+							Price $ {{ productPrice }}
+						</p>
+					</div>
+					<div class="col-3">
+						<input type="text" class="form-control" [(ngModel)]="productPrice">
+						<p class="lead">
+							Eğer ürün fiiyatın 500'den büyükse kırmızı olur.
+						</p>
+					</div>
+				</div>
+				<br>
+				<hr><br>
+
+			</div>
+		</div>
+	</div>
+	}
+</div>
