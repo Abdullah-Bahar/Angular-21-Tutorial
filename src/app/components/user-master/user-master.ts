@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
 	selector: 'app-user-master',
-	imports: [FormsModule, JsonPipe],
+	imports: [FormsModule],
 	templateUrl: './user-master.html',
 	styleUrl: './user-master.css',
 })
