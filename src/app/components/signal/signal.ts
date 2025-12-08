@@ -1,4 +1,4 @@
-import { Component, Signal, signal } from '@angular/core';
+import { Component, Signal, signal, WritableSignal } from '@angular/core';
 
 @Component({
 	selector: 'app-signal',
@@ -25,6 +25,12 @@ export class SignalComponent {
 
 	CourseDuration: Signal<string> = signal("3 Weeks");
 
+	cityList: WritableSignal<string[]> = signal([
+		"Van",
+		"Şırnak",
+		"Gaziantep",
+	]);
+
 	constructor() {
 		console.log("before: " + this.courseName);
 
@@ -36,5 +42,9 @@ export class SignalComponent {
 
 	changeCourse() {
 		this.courseName.set("Java");
+	}
+
+	addCity(cityName: string) {
+		this.cityList.update((old: string[]) => [...old, cityName]);
 	}
 }

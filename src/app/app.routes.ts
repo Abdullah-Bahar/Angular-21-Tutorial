@@ -7,6 +7,7 @@ import { ControlFlow } from './components/control-flow/control-flow';
 import { DynamicCssClass } from './components/dynamic-css-class/dynamic-css-class';
 import { UserMaster } from './components/user-master/user-master';
 import { ReactiveUser } from './components/reactive-user/reactive-user';
+import { LifeCycle } from './components/life-cycle/life-cycle';
 
 export const routes: Routes = [
 	{
@@ -42,6 +43,10 @@ export const routes: Routes = [
 	{
 		path: 'reactive-users',
 		component: ReactiveUser
+	},
+	{
+		path: 'life-cycle-hooks',
+		component: LifeCycle
 	},
 	{
 		// Wild Card
