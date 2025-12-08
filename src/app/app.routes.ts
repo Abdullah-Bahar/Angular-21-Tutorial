@@ -8,6 +8,7 @@ import { DynamicCssClass } from './components/dynamic-css-class/dynamic-css-clas
 import { UserMaster } from './components/user-master/user-master';
 import { ReactiveUser } from './components/reactive-user/reactive-user';
 import { LifeCycle } from './components/life-cycle/life-cycle';
+import { Photos } from './components/photos/photos';
 
 export const routes: Routes = [
 	{
@@ -47,6 +48,10 @@ export const routes: Routes = [
 	{
 		path: 'life-cycle-hooks',
 		component: LifeCycle
+	},
+	{
+		path: 'photos',
+		component: Photos
 	},
 	{
 		// Wild Card
