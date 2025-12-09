@@ -1,0 +1,99 @@
+<div class="container my-5">
+	<div class="row g-4">
+
+		<!-- USER CARDS (col-8) -->
+		<div class="col-8">
+			<div class="card shadow-sm">
+				<div class="card-header bg-warning">
+					<h5 class="mb-0">User List</h5>
+				</div>
+				<div class="card-body">
+
+					<div class="row g-3">
+
+						@for (item of userList$ | async; track $index) {
+
+						<div class="col-md-6">
+							<div class="card user-card shadow-sm p-3">
+								<h5 class="card-title">{{ item.fullName }}</h5>
+
+								<p class="mb-1"><strong>Email:</strong> {{ item.emailId }} </p>
+								<p class="mb-1"><strong>Mobile:</strong> {{ item.mobileNo }}</p>
+								<p class="mb-1"><strong>Password:</strong> {{ item.password }}</p>
+
+								<div class="mt-3">
+									<button class="btn btn-sm btn-primary" (click)="onEditUser(item)">Edit</button>
+									<button class="btn btn-sm btn-danger">Delete</button>
+									--- {{ item.userId }}
+								</div>
+							</div>
+						</div>
+						}
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- FORM (col-4) -->
+		<div class="col-4">
+			<div class="card shadow-sm">
+				<div class="card-header bg-warning">
+					<h5 class="mb-0">User Form</h5>
+				</div>
+				<div class="card-body">
+
+					<form [formGroup]="userForm">
+						<div class="mb-3">
+							<label class="form-label">Full Name</label>
+							<input type="text" formControlName="fullName" class="form-control"
+								placeholder="Enter Full Name">
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label">Email</label>
+							<input type="email" formControlName="emailId" class="form-control"
+								placeholder="Enter Email">
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label">Mobile No</label>
+							<input type="text" formControlName="mobileNo" class="form-control"
+								placeholder="Enter Mobile Number">
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label">Password</label>
+							<input type="password" formControlName="password" class="form-control"
+								placeholder="Enter Password">
+						</div>
+
+						<div class="row">
+							<div class="col-6">
+								<div class="d-grid">
+									<button type="reset" (click)="onClearForm()" class="btn btn-secondary m-2">Reset</button>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="d-grid">
+									@if (userForm.controls['userId'].value == 0) {
+										<button type="button" (click)="onSaveUser()"
+										class="btn btn-success m-2">Save</button>
+									} @else {
+										<button type="button" (click)="onUpdateUser()"
+										class="btn btn-warning m-2">Update</button>
+									}
+								</div>
+							</div>
+							-- {{ userForm.value.userId }}
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

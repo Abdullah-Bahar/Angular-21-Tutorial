@@ -9,6 +9,7 @@ import { UserMaster } from './components/user-master/user-master';
 import { ReactiveUser } from './components/reactive-user/reactive-user';
 import { LifeCycle } from './components/life-cycle/life-cycle';
 import { Photos } from './components/photos/photos';
+import { UserApi } from './components/user-api/user-api';
 
 export const routes: Routes = [
 	{
@@ -52,6 +53,10 @@ export const routes: Routes = [
 	{
 		path: 'photos',
 		component: Photos
+	},
+	{
+		path: 'user-api',
+		component: UserApi
 	},
 	{
 		// Wild Card
