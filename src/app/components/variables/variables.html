@@ -4,3 +4,23 @@
 <br>
 
 <button type="button">Save</button>
+
+<br><hr><br>
+
+<h3>Custom Pipe Denemesi</h3>
+<p>"variables" componenti dışında bir konu</p>
+
+<div class="row">
+	<div class="col-3">
+		name: {{ student.name }}
+		<br>
+		city: {{ student.city }}
+		<br>
+		state: {{ student.state | na }}
+		<br>
+		pContactNo: {{ student.contact.pContactNo }}
+		<br>
+		email: {{ student.contact.email }}
+		<br>
+	</div>
+</div>

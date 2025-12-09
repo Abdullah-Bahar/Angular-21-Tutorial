@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { NaPipe } from "../../pipes/na-pipe";
 
 @Component({
 	selector: 'app-variables',
-	imports: [],
+	imports: [NaPipe],
 	templateUrl: './variables.html',
 	styleUrl: './variables.css',
 })
@@ -48,5 +49,16 @@ export class Variables {
 	constructor() {
 		this.courseName = "1234";
 		this.rollNo = 1234;
+	}
+
+	// custom pipe denemesi için kullanılacak obje
+	student: any = {
+		name: 'Chetan',
+		city: 'Nagpur',
+		state: '',
+		contact: {
+			pContactNo: '0099887766',
+			email: 'chetan@gmail.com'
+		}
 	}
 }

@@ -3,19 +3,24 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { UserService } from '../../services/user-service';
+import { Alert } from '../../reusableComponent/alert/alert';
+import { Tabs } from "../../reusableComponent/tabs/tabs";
+import { Highlight } from "../../directives/highlight";
 
 @Component({
 	selector: 'app-user-api',
-	imports: [ReactiveFormsModule, AsyncPipe],
+	imports: [ReactiveFormsModule, AsyncPipe, Alert, Tabs, Highlight],
 	templateUrl: './user-api.html',
 	styleUrl: './user-api.css',
 })
 
 export class UserApi {
-
 	http = inject(HttpClient);
 	userList$: Observable<any[]>;
 	isFormSubmited: boolean = false;
+	userService = inject(UserService);
+	selectedTabName: string = 'List View';
 
 	userForm: FormGroup = new FormGroup({
 		userId: new FormControl(0),
@@ -26,6 +31,9 @@ export class UserApi {
 	});
 
 	constructor() {
+		// kendi oluşturduğumuz service'den method çağrısı
+		console.log(this.userService.sumTwoNumbers(22, 33));
+
 		this.userList$ = this.http.get<any[]>("https://api.freeprojectapi.com/api/GoalTracker/getAllUsers");
 	}
 
@@ -79,5 +87,10 @@ export class UserApi {
 			mobileNo: ''
 		});
 		this.isFormSubmited = false;
+	}
+
+	onSelectTab(tab: string) {
+		this.selectedTabName =  tab;
+		console.log(this.selectedTabName);
 	}
 }

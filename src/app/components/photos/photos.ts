@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { UserService } from '../../services/user-service';
+import { Alert } from "../../reusableComponent/alert/alert";
+import { Tabs } from "../../reusableComponent/tabs/tabs";
 
 @Component({
 	selector: 'app-photos',
-	imports: [FormsModule],
+	imports: [FormsModule, Alert, Tabs],
 	templateUrl: './photos.html',
 	styleUrl: './photos.css',
 })
@@ -12,6 +15,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class Photos implements OnInit {
 	photosList: any[] = [];
 	http = inject(HttpClient);
+	myTabList: string[] = ['Basic', 'Project', 'Family', 'Contact', 'skill',];
 
 	// Kullanıcı forma hiç dokunmadan save butonuna tıkladığında
 	// save methodunun çalışmayıp, form validasyon hatalarını göstermesi için
@@ -25,6 +29,10 @@ export class Photos implements OnInit {
 		"thumbnailUrl": ""
 	};
 
+	constructor(private userSrvice: UserService) {
+		
+	}
+
 	/* constructor(private http: HttpClient) {
 			// API bağlantısı için HttpClient servisi eklenir
 			// Ctor kullanımı eski yöntemdir
@@ -36,8 +44,14 @@ export class Photos implements OnInit {
 	}
 
 	getAllPhotos() {
-		this.http.get('https://jsonplaceholder.typicode.com/photos').subscribe((result: any) => {
-			this.photosList = result;
+		// this.http.get('https://jsonplaceholder.typicode.com/photos').subscribe((result: any) => {
+		// 	this.photosList = result;
+		// });
+
+		this.userSrvice.getAllPhotos().subscribe({
+			next: (result: any) => {
+				this.photosList = result;
+			}
 		});
 	}
 

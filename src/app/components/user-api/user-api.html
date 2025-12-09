@@ -1,8 +1,18 @@
 <div class="container my-5">
+
+	<app-tabs [tabList]="['List View', 'Form View']" (onTabChange)="onSelectTab($event)"></app-tabs>
+
+	<br>
+	<hr><br>
+
+	<app-alert [alertType]="'success'" [alertMessage]="'Welcome to user page'"></app-alert>
+	<app-alert [alertType]="'danger'" [alertMessage]="'bu bir alarmdır.'"></app-alert>
+
 	<div class="row g-4">
 
-		<!-- USER CARDS (col-8) -->
-		<div class="col-8">
+		@if (selectedTabName == 'List View' ) {
+		<!-- USER CARDS -->
+		<div class="col-12">
 			<div class="card shadow-sm">
 				<div class="card-header bg-warning">
 					<h5 class="mb-0">User List</h5>
@@ -17,9 +27,9 @@
 							<div class="card user-card shadow-sm p-3">
 								<h5 class="card-title">{{ item.fullName }}</h5>
 
-								<p class="mb-1"><strong>Email:</strong> {{ item.emailId }} </p>
-								<p class="mb-1"><strong>Mobile:</strong> {{ item.mobileNo }}</p>
-								<p class="mb-1"><strong>Password:</strong> {{ item.password }}</p>
+								<p class="mb-1"><strong appHighlight>Email:</strong> {{ item.emailId }} </p>
+								<p class="mb-1"><strong appHighlight>Mobile:</strong> {{ item.mobileNo }}</p>
+								<p class="mb-1"><strong appHighlight>Password:</strong> {{ item.password }}</p>
 
 								<div class="mt-3">
 									<button class="btn btn-sm btn-primary" (click)="onEditUser(item)">Edit</button>
@@ -35,9 +45,9 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- FORM (col-4) -->
-		<div class="col-4">
+		} @else if (selectedTabName == 'Form View' ) {
+		<!-- FORM -->
+		<div class="col-6">
 			<div class="card shadow-sm">
 				<div class="card-header bg-warning">
 					<h5 class="mb-0">User Form</h5>
@@ -82,7 +92,7 @@
 							<div class="text-danger">
 								@if (userForm.controls['mobileNo'].errors?.['required']) {
 								<span>This is required</span>
-								} 
+								}
 							</div>
 							}
 						</div>
@@ -106,7 +116,7 @@
 						<div class="row">
 							<div class="col-6">
 								<div class="d-grid">
-									<button type="reset" (click)="onClearForm()"
+									<button type="button" (click)="onClearForm()"
 										class="btn btn-secondary m-2">Reset</button>
 								</div>
 							</div>
@@ -129,6 +139,7 @@
 				</div>
 			</div>
 		</div>
+		}
 
 	</div>
 </div>
