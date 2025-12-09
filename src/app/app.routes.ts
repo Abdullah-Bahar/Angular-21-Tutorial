@@ -10,53 +10,67 @@ import { ReactiveUser } from './components/reactive-user/reactive-user';
 import { LifeCycle } from './components/life-cycle/life-cycle';
 import { Photos } from './components/photos/photos';
 import { UserApi } from './components/user-api/user-api';
+import { Login } from './components/login/login';
+import { Layout } from './components/layout/layout';
+import { authGuard } from './guard/auth-guard';
 
 export const routes: Routes = [
 	{
 		// Default Path
 		path: '',
-		redirectTo: 'variables',
+		redirectTo: 'login',
 		pathMatch: 'full'
 	},
 	{
-		path: 'databinding',
-		component: DataBinding
+		path: 'login',
+		component: Login
 	},
 	{
-		path: 'signal',
-		component: SignalComponent
-	},
-	{
-		path: 'variables',
-		component: Variables
-	},
-	{
-		path: 'control-flow',
-		component: ControlFlow
-	},
-	{
-		path: 'dynamic-css-class',
-		component: DynamicCssClass
-	},
-	{
-		path: 'users',
-		component: UserMaster
-	},
-	{
-		path: 'reactive-users',
-		component: ReactiveUser
-	},
-	{
-		path: 'life-cycle-hooks',
-		component: LifeCycle
-	},
-	{
-		path: 'photos',
-		component: Photos
-	},
-	{
-		path: 'user-api',
-		component: UserApi
+		path: '',
+		component: Layout,
+		canActivate: [authGuard],
+		children: [
+			{
+				path: 'databinding',
+				component: DataBinding
+			},
+			{
+				path: 'signal',
+				component: SignalComponent
+			},
+			{
+				path: 'variables',
+				component: Variables
+			},
+			{
+				path: 'control-flow',
+				component: ControlFlow
+			},
+			{
+				path: 'dynamic-css-class',
+				component: DynamicCssClass
+			},
+			{
+				path: 'users',
+				component: UserMaster
+			},
+			{
+				path: 'reactive-users',
+				component: ReactiveUser
+			},
+			{
+				path: 'life-cycle-hooks',
+				component: LifeCycle
+			},
+			{
+				path: 'photos',
+				component: Photos
+			},
+			{
+				path: 'user-api',
+				component: UserApi,
+			}
+		],
 	},
 	{
 		// Wild Card

@@ -1,0 +1,40 @@
+<div class="login-container">
+	<div class="login-card">
+		<!-- Header -->
+		<div class="login-header">
+			<h2>Welcome Back</h2>
+			<p>Sign in to your account</p>
+		</div>
+
+		<!-- Login Form -->
+		<form>
+			<!-- Email Field -->
+			<div class="form-group">
+				<label for="email" class="form-label">Email Address</label>
+				<input type="email" [(ngModel)]="loginObj.email" name="email" class="form-control" id="email" placeholder="Enter your email">
+			</div>
+
+			<!-- Password Field -->
+			<div class="form-group">
+				<label for="password" class="form-label">Password</label>
+				<input type="password" [(ngModel)]="loginObj.password" name="password" class="form-control" id="password" placeholder="Enter your password">
+			</div>
+
+			<!-- Remember Me & Forgot Password -->
+			<div class="remember-forgot">
+				<label class="form-check-label">
+					<input type="checkbox" class="form-check-input"> Remember me
+				</label>
+				<a href="#forgot-password">Forgot password?</a>
+			</div>
+
+			<!-- Login Button -->
+			<button type="submit" (click)="onLogin()" class="login-btn">Sign In</button>
+		</form>
+
+		<!-- Sign Up Link -->
+		<div class="signup-link">
+			Don't have an account? <a href="#signup">Sign up</a>
+		</div>
+	</div>
+</div>

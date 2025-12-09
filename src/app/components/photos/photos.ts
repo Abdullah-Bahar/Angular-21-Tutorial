@@ -4,6 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../../services/user-service';
 import { Alert } from "../../reusableComponent/alert/alert";
 import { Tabs } from "../../reusableComponent/tabs/tabs";
+import { PhotoModel } from '../../models/model';
 
 @Component({
 	selector: 'app-photos',
@@ -21,7 +22,7 @@ export class Photos implements OnInit {
 	// save methodunun çalışmayıp, form validasyon hatalarını göstermesi için
 	isFormSubmited: boolean = false;
 
-	newPhoto: any = {
+	newPhoto: PhotoModel = {
 		"albumId": 0,
 		"id": 0,
 		"title": "",
