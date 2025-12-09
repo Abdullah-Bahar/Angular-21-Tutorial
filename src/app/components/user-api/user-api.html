@@ -49,39 +49,74 @@
 							<label class="form-label">Full Name</label>
 							<input type="text" formControlName="fullName" class="form-control"
 								placeholder="Enter Full Name">
+							@if (userForm.controls['fullName'].touched || userForm.controls['fullName'].dirty ||
+							isFormSubmited) {
+							<div class="text-danger">
+								@if (userForm.controls['fullName'].errors?.['required']) {
+								<span>This is required</span>
+								}
+							</div>
+							}
 						</div>
 
 						<div class="mb-3">
 							<label class="form-label">Email</label>
 							<input type="email" formControlName="emailId" class="form-control"
 								placeholder="Enter Email">
+							@if (userForm.controls['emailId'].touched || userForm.controls['emailId'].dirty ||
+							isFormSubmited) {
+							<div class="text-danger">
+								@if (userForm.controls['emailId'].errors?.['required']) {
+								<span>This is required</span>
+								}
+							</div>
+							}
 						</div>
 
 						<div class="mb-3">
 							<label class="form-label">Mobile No</label>
 							<input type="text" formControlName="mobileNo" class="form-control"
 								placeholder="Enter Mobile Number">
+							@if (userForm.controls['mobileNo'].touched || userForm.controls['mobileNo'].dirty ||
+							isFormSubmited) {
+							<div class="text-danger">
+								@if (userForm.controls['mobileNo'].errors?.['required']) {
+								<span>This is required</span>
+								} 
+							</div>
+							}
 						</div>
 
 						<div class="mb-3">
 							<label class="form-label">Password</label>
 							<input type="password" formControlName="password" class="form-control"
 								placeholder="Enter Password">
+							@if (userForm.controls['password'].touched || userForm.controls['password'].dirty ||
+							isFormSubmited) {
+							<div class="text-danger">
+								@if (userForm.controls['password'].errors?.['required']) {
+								<span>This is required</span>
+								} @else if (userForm.controls['password'].errors?.['minlength']) {
+								<span>Min 5 Char Needed</span>
+								}
+							</div>
+							}
 						</div>
 
 						<div class="row">
 							<div class="col-6">
 								<div class="d-grid">
-									<button type="reset" (click)="onClearForm()" class="btn btn-secondary m-2">Reset</button>
+									<button type="reset" (click)="onClearForm()"
+										class="btn btn-secondary m-2">Reset</button>
 								</div>
 							</div>
 							<div class="col-6">
 								<div class="d-grid">
 									@if (userForm.controls['userId'].value == 0) {
-										<button type="button" (click)="onSaveUser()"
+									<button type="button" (click)="onSaveUser()"
 										class="btn btn-success m-2">Save</button>
 									} @else {
-										<button type="button" (click)="onUpdateUser()"
+									<button type="button" (click)="onUpdateUser()"
 										class="btn btn-warning m-2">Update</button>
 									}
 								</div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
 	selector: 'app-photos',
@@ -12,6 +12,11 @@ import { FormsModule } from '@angular/forms';
 export class Photos implements OnInit {
 	photosList: any[] = [];
 	http = inject(HttpClient);
+
+	// Kullanıcı forma hiç dokunmadan save butonuna tıkladığında
+	// save methodunun çalışmayıp, form validasyon hatalarını göstermesi için
+	isFormSubmited: boolean = false;
+
 	newPhoto: any = {
 		"albumId": 0,
 		"id": 0,
@@ -36,13 +41,16 @@ export class Photos implements OnInit {
 		});
 	}
 
-	onSavePhoto() {
-		this.http.post('https://jsonplaceholder.typicode.com/photos', this.newPhoto).subscribe((response: any) => {
-			alert('API Call Success');
-			this.getAllPhotos();
-		});
+	onSavePhoto(form: NgForm) {
+		this.isFormSubmited = true;
 
-		this.clearForm();
+		if (form.valid) {
+			this.http.post('https://jsonplaceholder.typicode.com/photos', this.newPhoto).subscribe((response: any) => {
+				alert('API Call Success');
+				this.getAllPhotos();
+				this.clearForm();
+			});
+		}
 	}
 
 	onEditPhoto(photo: any) {
@@ -123,5 +131,7 @@ export class Photos implements OnInit {
 			"url": "",
 			"thumbnailUrl": ""
 		};
+
+		this.isFormSubmited = false;
 	}
 }
