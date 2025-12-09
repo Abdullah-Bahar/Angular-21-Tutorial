@@ -1,0 +1,8 @@
+<div class="btn-group">
+	@for (item of tabList; track $index) {
+	<button type="button" (click)="onTabSelect(item)" class="btn" 
+	[ngClass]="activeTab == item ? 'btn-primary' : 'btn-secondary'">
+		{{item}}
+	</button>
+	}
+</div>
