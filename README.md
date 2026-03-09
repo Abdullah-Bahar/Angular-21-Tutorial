@@ -4,7 +4,7 @@
 
 - [Proje Hakkında](#bulb-proje-hakkında)
 - [İçerdiği Konular](#mortar_board-i̇çerdiği-konular)
-- [Proje Özellikleri](#proje-özellikleri)
+- [Proje Özellikleri](#gear-proje-özellikleri)
 - [Kurulum ve Çalıştırma](#computer-kurulum-ve-çalıştırma)
 
 ## :bulb: Proje Hakkında
