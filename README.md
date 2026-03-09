@@ -1,59 +1,58 @@
-# Angular21Tutorial
+# :rocket: Angular 21 Tutorial
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+## :book: İçindekiler
 
-## Development server
+- [Proje Hakkında](#bulb-proje-hakkında)
+- [İçerdiği Konular](#mortar_board-i̇çerdiği-konular)
+- [Proje Özellikleri](#proje-özellikleri)
+- [Kurulum ve Çalıştırma](#computer-kurulum-ve-çalıştırma)
 
-To start a local development server, run:
+## :bulb: Proje Hakkında
 
-```bash
-ng serve
-```
+Bu repository, **Angular 21** öğrenirken yaptığım alıştırma ve küçük projeleri içermektedir.
+Projenin temel amacı, Angular çerçevesinin modern özelliklerini adım adım öğrenmek ve pratikte uygulayabilmektir.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Projeler, aşağıdaki YouTube oynatma listesi üzerinden takip edilen derslere dayanmaktadır :
+[Angular 21 Tutorial Playlist](https://www.youtube.com/playlist?list=PL7JmcZV0UQtU12drXHGDswOGNhEdXA4RO)
 
-## Code scaffolding
+## :mortar_board: İçerdiği Konular
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Proje kapsamında işlenen ve örnekleri ile uygulanan başlıca konular şunlardır :
 
-```bash
-ng generate component component-name
-```
+- Component yapısı ve bileşenler arası iletişim
+- Template ve Data Binding (Interpolation, Property & Event Binding)
+- Angular Directives
+- Reactive Forms ve Template-driven Forms
+- Angular Services ve Dependency Injection
+- HTTP İstekleri ve API Entegrasyonu 
+- Angular Lifecycle Hooks
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## :gear: Proje Özellikleri
 
-```bash
-ng generate --help
-```
+Bu porje [Angular CLI](https://github.com/angular/angular-cli) versiyon 21.0.0 kulllanılarak oluşturulmuştur.
 
-## Building
+## :computer: Kurulum ve Çalıştırma
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+1. Repository'yi klonlayın :
 
 ```bash
-ng test
+	git clone https://github.com/Abdullah-Bahar/Angular-21-Tutorial.git
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+1. Proje klasörüne girin :
 
 ```bash
-ng e2e
+	cd Angular-21-Tutorial
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. Bağımlılıkları yükleyin :
 
-## Additional Resources
+```bash
+	npm install
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Uygulamayı çalıştırın :
+
+```bash
+	ng serve --open
+```
