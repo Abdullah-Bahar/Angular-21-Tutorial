@@ -8,7 +8,7 @@
 - [Proje Özellikleri](#gear-proje-özellikleri)
 - [Kurulum ve Çalıştırma](#computer-kurulum-ve-çalıştırma)
 - [Github Pages İle Yayınlama](#github-pages-ile-yayınlama)
-- [Kaynaklar]()
+- [Kaynaklar](#kaynaklar)
 
 ## :bulb: Proje Hakkında
 
@@ -24,6 +24,10 @@ Projeyi canlı olarak aşağıdaki bağlantıdan görüntüleyebilirsiniz:
 
 :point_right: Live Demo :
 https://abdullah-bahar.github.io/Angular-21-Tutorial/
+
+Kullanıcı bilgileri :
+- user : admin
+- password : admin
 
 ## :mortar_board: İçerdiği Konular
 
